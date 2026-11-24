@@ -1,8 +1,15 @@
 # Proof of Seed
 
-A practical, deployable mechanism to defend Ethereum from unexpected quantum attacks, leveraging account abstraction and zero-knowledge proofs.
-Expected to protect the majority of wallets and applications, with no user action required prior to a quantum emergency and no change to the execution layer.
+Ethereum, Bitcoin and Solana authenticate their users with elliptic-curve signatures, and a quantum computer able to break elliptic-curve cryptography, or a classical cryptanalytic advance to the same effect, would expose the accounts these signatures protect.
+The mitigations under discussion replace the signature scheme at the protocol level, and need a hard fork, or on Bitcoin a soft fork, and a long period of coordination that an emergency would not allow.
 
-- Read the [Project whitepaper](https://github.com/ProofofSeed/whitepaper).
-- Read about [HW wallet implementation](https://github.com/ProofofSeed/boo-in-a-box)
+A proof of seed is a fallback that needs no protocol change: a zero-knowledge proof of knowledge of the seed, or of a secret derived from it by hashing, from which a hierarchical deterministic wallet derived an account.
+Its soundness depends on hash functions and on the proof system rather than on the discrete-logarithm problem, so it remains meaningful after elliptic-curve signatures have been broken.
+
+This work makes a proof of seed run where seeds are held: in the secure elements of hardware wallets, and on phones and low-power computers, which may be unable to run modern succinct proof systems, or unsuited to them.
+A streamed ZKBoo prover, an MPC-in-the-Head proof whose memory does not depend on the length of the computation or of the proof, runs inside the secure element and streams its proof out, so that the seed never leaves the device.
+An untrusted, more powerful machine then lifts that proof: it verifies it inside a succinct proof system and produces a short proof that it has done so, learning nothing secret and unable to have a false statement accepted.
+
+- Read the [whitepaper](https://github.com/ProofofSeed/whitepaper).
+- Read about the [HW wallet implementation](https://github.com/ProofofSeed/boo-in-a-box)
 - Check out our [Rust ecosystem for ZK proofs on HW wallets](https://github.com/zkboo)
