@@ -10,6 +10,7 @@ This work makes a proof of seed run where seeds are held: in the secure elements
 A streamed ZKBoo prover, an MPC-in-the-Head proof whose memory does not depend on the length of the computation or of the proof, runs inside the secure element and streams its proof out, so that the seed never leaves the device.
 An untrusted, more powerful machine then lifts that proof: it verifies it inside a succinct proof system and produces a short proof that it has done so, learning nothing secret and unable to have a false statement accepted.
 
-- Read the [whitepaper](https://github.com/ProofofSeed/whitepaper).
-- Read about the [HW wallet implementation](https://github.com/ProofofSeed/boo-in-a-box)
+- Visit our [website](https://proofofseed.org/).
+- Read our [whitepaper](https://github.com/ProofofSeed/whitepaper).
+- Read about our [HW wallet implementation](https://github.com/ProofofSeed/boo-in-a-box)
 - Check out our [Rust ecosystem for ZK proofs on HW wallets](https://github.com/zkboo)
