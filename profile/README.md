@@ -3,8 +3,8 @@
 Ethereum, Bitcoin and Solana authenticate their users with elliptic-curve signatures, and a quantum computer able to break elliptic-curve cryptography, or a classical cryptanalytic advance to the same effect, would expose the accounts these signatures protect.
 The mitigations under discussion replace the signature scheme at the protocol level, and need a hard fork, or on Bitcoin a soft fork, and a long period of coordination that an emergency would not allow.
 
-A proof of seed is a fallback that needs no protocol change: a zero-knowledge proof of knowledge of the seed, or of a secret derived from it by hashing, from which a hierarchical deterministic wallet derived an account.
-Its soundness depends on hash functions and on the proof system rather than on the discrete-logarithm problem, so it remains meaningful after elliptic-curve signatures have been broken.
+A Proof of Seed is a graceful emergency fallback: zero-knowledge proof of the seed phrase, master entropy, or some secret derived from it by hashing, from which a hierarchical deterministic wallet ultimately derived the account authority.
+Its soundness depends on hash functions and on the proof system rather than on the discrete-logarithm problem, so it remains meaningful even after elliptic-curve signatures have been completely broken.
 
 This work makes a proof of seed run where seeds are held: in the secure elements of hardware wallets, and on phones and low-power computers, which may be unable to run modern succinct proof systems, or unsuited to them.
 A streamed ZKBoo prover, an MPC-in-the-Head proof whose memory does not depend on the length of the computation or of the proof, runs inside the secure element and streams its proof out, so that the seed never leaves the device.
